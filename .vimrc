@@ -311,7 +311,6 @@ set cmdheight=2                                       "设置命令行的高度�
 set cursorline                                        "突出显示当前行
 " set guifont=YaHei_Consolas_Hybrid:h10                 "设置字体:字号（字体名称空格用下划线代替）
 set guifont=DejaVu_Sans_Mono:h14
-set nowrap                                            "设置不自动换行
 set shortmess=atI                                     "去掉欢迎界面
 set gcr=a:block-blinkon0                              "禁止光标闪烁
 " 设置 gVim 窗口初始位置及大小
@@ -1821,3 +1820,15 @@ let g:neocomplete#sources#dictionary#dictionaries = {
     " type in /ref{fig: and press <C-n> you will automatically cycle through
     " all the figure labels. Very useful!
     set iskeyword+=:
+
+""""""""""""""""""""""""""""""
+"  断行设置
+""""""""""""""""""""""""""""""
+"set wrap           " 自动换行
+set nowrap         " 不自动换行
+set linebreak       " 整词换行
+autocmd BufEnter *.tex set tw=66  "超过78个字符自动断行
+autocmd BufEnter *.tex set lbr  "不在单词之间断行
+autocmd BufEnter *.tex set fo+=mB  "打开断行模块对亚洲语言支持。 m 表示允许在两个汉字之间断行， 即使汉字之间没有出现空格。 B 表示
+" 两行合并为一行的时候， 汉字与汉字之间不要补空格。
+
